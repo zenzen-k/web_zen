@@ -1,0 +1,9 @@
+@charset "EUC-KR";
+
+body {
+	background-color: cyan;
+}
+h1 {
+	background-color: black;
+	color:yellow;
+}
