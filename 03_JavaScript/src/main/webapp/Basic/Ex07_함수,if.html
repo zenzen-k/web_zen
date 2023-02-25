@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	#result{
+		width: 250px;
+		height: 100px;
+		background-color: yellow;
+	}
+</style>
+<script type="text/javascript">
+	function SumOfTwo(a, b){
+		// document.write(a+","+b+"<br>"); -> 이게 있으며 새로우 창이 만들ㅇ어짐
+		
+		// 아이디가 result인 영역을 가져와서 변수에 담음
+		myarea = document.getElementById("result"); 
+		if(a==null){
+			// 아래가 html 코드이니까 이걸 영역변수에 넣는다!
+			myarea.innerHTML = "변수 a가 초기화되지 않았습니다. <br>변수 b의 값은 " + b + "입니다. <br>";
+		}
+		else if(b == undefined){
+			myarea.innerHTML = "변수 b에는 값이 들어오지 않았습니다. <br>변수 a의 값은 " + a + "입니다.<br>";
+		}
+		else {
+			myarea.innerHTML = "a+b=" + (a+b) + "입니다.<br>";
+		}
+	}	
+</script>
+</head>
+<body>
+	<h1>a와 b의 값을 선택하세요</h1>
+	<form action="">
+	<input type="button" value="a=3, b=10" onClick="SumOfTwo(3, 10)">
+	<input type="button" value="b=8" onClick="SumOfTwo(null, 8)">
+	<input type="button" value="a=8" onClick="SumOfTwo(8)">
+	</form>
+	<br>
+	
+	<div id="result"></div>
+</body>
+</html>

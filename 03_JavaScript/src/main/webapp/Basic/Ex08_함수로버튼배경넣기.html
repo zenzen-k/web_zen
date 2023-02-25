@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	function bg(pos){
+		//alert(1); // 함수 잘 만들어쓴ㄴ지 확인용.
+		//pos='' 변수안에 위치를 넣을거임
+		
+		var reply = confirm("정말 배경 이미지를 바꾸겠습니까?"); // 확인취소 boolean
+		if(reply == true){ // 확인
+			document.body.style.backgroundImage = "url("+ pos+")";
+		}else{ // 취소
+			
+		}
+	}
+</script>
+</head>
+<body onLoad="alert('저의 홈페이지에 오신것을 환영합니다')"> <!-- 바디가 웹브라우저에 올라왔을 때 -->
+	<form>
+		<input type="button" value="버튼" onclick="alert('alert입니다')">
+		<!-- 겉에 " " 가 있으므로 구분하기 위해서 ' ' 작은 따옴표 사용해주기!! -->
+		<!-- 현재위치 ./ 에서 한단계 올라가는 ../ wketjdgownrl -->
+		<input type="button" value="배경바꾸기1" onclick="bg('./../images/bg10.gif')">
+		<input type="button" value="배경바꾸기2" onclick="bg('./../images/bg11.gif')">
+	</form>
+</body>
+</html>

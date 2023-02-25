@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	// 입력창에서 입력받은 것은 모두 문자열로 인식을 한다. 따옴표로 묶던 안묶던...
+	num = prompt("정수를 입력하세요", 20);
+	document.write("num:" + num + "<br>");
+	document.write(typeof(num) + "<br>");
+	//문자열을 숫자로 바꾸는 방법
+	document.write(Number(num) + 3 + "<br>");
+	document.write(parseInt(num) + 3 + "<br>");
+	document.write(+num + 3 + "<br>");
+	document.write(eval(num) + 3 + "<br>");
+
+	document.write("--------------------<br>");
+	
+	document.write(Number("1.78") + 3 + "<br>");
+	document.write(parseInt("1.78") + 3 + "<br>"); // 정수를 가지고오는거라 1+4가된다
+	document.write(+"1.78" + 3 + "<br>");
+	document.write(eval("1.78") + 3 + "<br>");
+
+	document.write("--------------------<br>");
+	
+	document.write(Number("15+3*4") + "<br>");
+	document.write(parseInt("15+3*4") + "<br>");
+	document.write(+("15+3*4") + "<br>");
+	document.write(eval("15+3*4") + "<br>");
+</script>
+</head>
+<body>
+	
+</body>
+</html>

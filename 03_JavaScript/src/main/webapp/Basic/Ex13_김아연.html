@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	#gugudan{
+		border-collapse: collapse;
+		text-align: center;
+		margin: 30px auto;
+		width: 80%;
+		height: 500px;
+	}
+	#gugudan caption{
+		border: none;
+		font-weight: bold;
+		padding : 5px 10px;
+		font-size: 20px;
+		margin: 10px;
+	}
+	#gugudan th{
+		background-color: pink;
+	}
+</style>
+<script type="text/javascript">
+	document.write("<table border='1' id='gugudan'>");
+	document.write("<tr><caption>구구단 출력</caption></tr>");
+	for(i=0; i<10; i++){
+		document.write("<tr>");
+		for(j=2; j<10; j++){
+			if(i==0){
+			document.write("<th>");
+			document.write(j + "단");		
+			document.write("</th>");
+			}
+			else{
+			document.write("<td>");
+			document.write(j + " X " + i + " = " + (i*j) );		
+			document.write("</td>");
+			}
+		}
+		document.write("</tr>");
+	}
+	document.write("</table>");
+</script>
+</head>
+<body>
+	<!-- 이중for문 이용해서 규규던 출력 -> 테이블 형태로
+	<table>
+		<tr>
+			<th>구구단 출력</th>
+			<td> ~단 * 9</td>
+		</tr>
+		
+		<tr>
+			<td>i*1=?</td>
+		</tr>
+	</table> -->
+</body>
+</html>

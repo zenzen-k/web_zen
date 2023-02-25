@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	kor = Number(prompt("국어점수를 입력하세요"));
+	eng = Number(prompt("영어점수를 입력하세요"));
+	math = Number(prompt("수학점수를 입력하세요"));
+	sum = kor+eng+math
+	avg = sum/3
+	document.write("합계 : " + sum + "<br>");
+	document.write("평균1 : " + avg + "<br>");
+	document.write("평균2 : " + Math.round(avg) + "<br>");
+	document.write("평균3 : " + (avg).toFixed(2) + "<br>");
+	
+	document.write("if문 이용하기<br>");
+	if(avg>=90)
+		document.write("학점 : A<br>");
+	else if(avg>=80)
+		document.write("학점 : B<br>");
+	else if(avg>=70)
+		document.write("학점 : C<br>");
+	else if(avg>=60)
+		document.write("학점 : D<br>");
+	else
+		document.write("학점 : F<br>");
+		
+	document.write("switch문 이용하기<br>");
+	switch(parseInt(avg/10)){
+	case 10:
+	case 9:
+		document.write("학점 : A<br>");
+		break;
+	case 8:
+		document.write("학점 : B<br>");
+		break;
+	case 7:
+		document.write("학점 : C<br>");
+		break;
+	case 6:
+		document.write("학점 : D<br>");
+		break;
+	default : 
+		document.write("학점 : F<br>");
+	}
+</script>
+</head>
+<body>
+	
+</body>
+</html>

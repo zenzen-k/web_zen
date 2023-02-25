@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	age = 30;
+	// 만약에 오타등 안ㄴ나오면 그 뒤줄 다 안나오니까 찾아보거나
+	// 웹페이지에서 f12로 찾깅
+	document.write("나이1 : " + age + "<br>");
+	
+	function test() {
+		age = 40; // 전역변수. var 를 붙여야 지역변수가 됨.
+		document.write("나이2 : " + age + "<br>");
+	}
+	
+	function test2(age) { // 여기에서의 age는 지역변수가 된다.
+		document.write("나이4 : " + age + "<br>");
+		age=90;
+	}
+	
+	
+	// 함수는 자바처럼 호출이 있어야 사용가능하다.
+	// 호출이 끝나면 다시 돌아온당~
+	test();
+	document.write("나이3 : " + age + "<br>");
+	
+	test2(70);
+	document.write("나이5 : " + age + "<br>");
+</script>
+</head>
+<body>
+
+</body>
+</html>
