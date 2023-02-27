@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	/* 자바스크립트에는 미리 만들어져있는 내장객체가 있다. */
+	/* a가 관리하는 4개의 배열 */
+	var a = Array(4);
+	document.write(a.length + "<br>");
+	for(i=0; i<a.length; i++){
+		document.write(a[i] + " ");
+	}
+	document.write("<br>");
+	
+	var b = Array(10,20,30);
+	document.write(b.length + "<br>");
+	for(i=0; i<b.length; i++){
+		document.write(b[i] + " ");
+	}
+	document.write("<br>");
+	
+	var c = Array('one', 'two', 'three');
+	document.write(c.length + "<br>");
+	for(i=0; i<c.length; i++){
+		document.write(c[i] + " ");
+	}
+	document.write("<br>");
+	
+	var d = Array();
+	d[0]='spring';
+	d[1]='summer';
+	d[2]="fall";
+	d[3]="winter";
+	for(i=0;i<d.length;i++){
+		document.write(d[i]+" ");
+	}
+	document.write("<br>");
+	
+	document.write(d+"<br>"); /* 자동으로 사이에 쉼표가 나오며 배열의 값 전체가 모두 출력된다*/
+	document.write(d.toString()+"<br>"); /* 자바와 마찬가지로 toString 이 생략되어 있다.*/ 
+	
+	var e = ['rose', 'tulip', 'lily'];
+	document.write(e.length + "<br>");
+	for(i=0; i<e.length; i++){
+		document.write(e[i] + " ");
+	}
+	document.write("<br>");
+	
+	for(x in e){
+		document.write(x + "/" + e[x] + " ");
+	}
+	document.write("<br>");
+	
+	/* 자바의 배열과 자바스크립트의 배열은 조금 다르다. */
+	/* 자바스크립트는 데이터 타입이 달라도 한 묶음으로 묶을 수 있다 */
+	var f = [1, -2.34, "abc", true];
+	document.write(f.length + "<br>");
+	for(i=0; i<f.length; i++){
+		document.write(f[i] + " ");
+	}
+	document.write("<br>");
+	
+	for(x in f){
+		document.write(f[x] + " ");	
+	}
+	document.write("<br>");
+	
+</script>
+</head>
+<body>
+
+</body>
+</html>

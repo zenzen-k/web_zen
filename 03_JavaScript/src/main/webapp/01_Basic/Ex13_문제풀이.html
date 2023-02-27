@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	table{
+		width: 800px;
+		height: 300px;
+		margin: 30px auto; /* 가운데정렬후 30의 여백 */
+		text-align: center;
+	}
+	th{
+		background-color: pink;
+	}
+	/* 또는 */
+	/* tr:first-child */
+	/* tr:nth-child(1) */
+	/* 다양한 방법있음! */
+</style>
+<script type="text/javascript">
+	document.write("<table border='1'>");
+	document.write("<tr>");
+
+	for(var dan=2; dan<=9; dan++){
+		document.write("<td>" + dan + "단</td>");
+	}
+	document.write("</r>");
+	
+	
+	for(var su=1; su<=9; su++){
+		document.write("<tr>");
+		for(var dan=2; dan<=9; dan++){
+			document.write("<td>" + dan + "X" + su + "=" + dan*su + "</td>");
+		}
+		document.write("</tr>");
+	}
+	
+	
+	document.write("</table>");
+</script>
+
+</head>
+<body>
+
+</body>
+</html>

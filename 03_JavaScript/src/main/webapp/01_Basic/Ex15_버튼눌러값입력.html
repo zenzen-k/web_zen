@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+#result{
+		width: 250px;
+		height: 100px;
+		background-color: yellow;
+	}
+</style>
+<script type="text/javascript">
+	function inputname() {
+		myarea = document.getElementById("result");
+		str = prompt("이름과 나이를 입력하세요","아이유/30");	
+		myarea.innerHTML = "이름과 나이는 " + str + "입니다.<br>";
+	}
+	
+</script>
+</head>
+<body>
+	이름과 나이를 입력하세요<br>
+	<form action="">
+	<input type="button" value="입력하기" onClick="inputname()">
+	</form>
+	
+	<div id="result"></div>
+</body>
+</html>

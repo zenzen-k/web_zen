@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	body{
+		text-align: center;
+	}
+	img{
+		width: 150px;
+		height: 150px;
+	}
+</style>
+<script type="text/javascript">
+	var title = new Array('라벤더', '레몬밤', '허브', '카모마일', '바질');
+	
+	var flower = new Array();
+	flower[0] = "./../images/lavender.jpg";
+	flower[1] = "./../images/lemonbalm.jpg";
+	flower[2] = "./../images/herbtea.jpg";
+	flower[3] = "./../images/camomile.jpg";
+	flower[4] = "./../images/basil.jpg";
+	
+	/* document.write("<table border = 1>");
+	for(i=0; i<4; i++){
+		document.write("<tr>");
+		for(j=0; j<3; j++){
+			if(i==0)
+				document.write("<th>"+ title[j] + "</th>");
+			if(i==1)
+				document.write("<td><img src = '"+ flower[j] + "'></td>");
+			if(i==2)
+				document.write("<th>"+ title[j+3] + "</th>");
+			if(i==3)
+				document.write("<td><img src = '"+ flower[j+3] + "'></td>");
+		}
+		document.write("</tr>");
+	}
+	document.write("</table>") */
+	
+	var tstr = document.write("<table border = 1>");
+	
+	for(i=0; i<2; i++){
+		tstr += "<tr>";
+			for(j=0; j<3; j++){
+				/* 3*i+j 의 공식 */
+				if((3*i+j) < 5){
+					tstr += "<th>" + title[3*i+j] + "</th>";
+				}
+				else{
+					tstr += "<th>없음</th>";
+				}
+			}
+		tstr += "</tr><tr>";
+			for(j=0; j<3; j++){
+				/* 3*i+j 의 공식 */
+				if((3*i+j) < 5){
+					tstr += "<td><img src = '" + flower[3*i+j] + "'></td>";
+				}
+				else{
+					tstr += "<td>없음</td>";
+				}
+			}
+		tstr += "</tr>";
+	}
+	
+	tstr += "</table>";
+	document.write(tstr);
+</script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<script type="text/javascript">
+
+	count = 0;
+	do{
+		var str = prompt("입력하세요","stop을 입력하면 중단");
+		document.write("<h3>입력한 값:" + str + "</h3><br>");
+		count++;
+		
+	}while(str != "stop"); /* 자바와는 다르게 문자열비교도 !=, == 으로 한다. */
+	/* 또는 while 의 조건문을 true 로 하고 if문을 사용해도 된다. */
+	
+	document.write("반복횟수 : " + count);
+</script>
+<body>
+	
+</body>
+</html>

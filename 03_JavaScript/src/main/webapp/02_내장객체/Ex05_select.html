@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	#result{
+		background-color: yellow;
+		width: 300px;
+		height: 100px;
+	}
+</style>
+<script type="text/javascript">
+	
+	var f_selarr = new Array("한식","중식","일식","외국식");
+	/* 2차원 배열 */
+	var s_selarr = new Array();
+	s_selarr[0] = new Array('김치찌개', '된장찌개', '불고기', '설렁탕', '뼈해장국');
+	s_selarr[1] = new Array('탕수육', '팔보채', '깐풍기','볶음밥');
+	s_selarr[2] = new Array('초밥', '덮밥', '문어구이','스시','우동');
+	s_selarr[3] = new Array('스테이크', '캐비어', '푸아그라', '파스타','월남쌈');
+	
+	/* s_selarr = [['김치찌개', '된장찌개', '불고기', '설렁탕', '뼈해장국'],
+				['탕수육', '팔보채', '깐풍기','볶음밥'],
+				['초밥', '덮밥', '문어구이','스시','우동'],
+				['스테이크', '캐비어', '푸아그라', '파스타','월남쌈']]; */
+	
+	function init() {
+		//alert('init'); /* 호출되는지 확인용 */
+		
+		myform.first.options[0] = new Option("선택","선택"); // text, value 같으면 생략가능
+		myform.second.options[0] = new Option("선택"); // text, value
+		
+		/* myform이라는 폼안의 first에 옵션으로 넣기 */
+		// options 라는 배열이 있다.
+		for(i=0; i<f_selarr.length; i++){
+			myform.first.options[i+1] = new Option(f_selarr[i]);
+		}
+	}
+	
+	// select에 option 변화가 생겼을때 이 함수를 호출한다.
+	function firstChange(){
+		//alert("firstChange()");
+		
+		findex = myform.first.selectedIndex; // 선택한 인덱스 번호
+		fvalue = myform.first[findex].value; // 선택한 인덱스의 값을 가져옴.
+		/* fvalue = myform.first[findex].text; // 선택한 인덱스의 텍스트를 가져옴. */
+		// 즉, 옵션이 배열로 처리됨을 볼 수 있다. first[findex]
+		
+		alert(findex + " / " + fvalue);
+		
+		//myform.second.options.length = null;
+		
+		//myform.second.length 옵션 생략해도 괜ㅊㄶ다!
+		for(i=myform.second.options.length; i>0; i--){
+			myform.second.options[i] = null;
+		}
+		
+		for(i=0; i<s_selarr[findex-1].length; i++){
+			myform.second.options[i+1] = new Option(s_selarr[findex-1][i]);
+		}
+	}
+	
+	function secondChange(){
+		findex = myform.first.selectedIndex; 
+		fvalue = myform.first[findex].value;
+		sindex = myform.second.selectedIndex;
+		svalue = myform.second[sindex].value;
+		
+		area = document.getElementById("result");
+		area.innerHTML = "선택한 메뉴는 " + fvalue + " - " + svalue +" 입니다<br>";
+	}
+</script>
+</head>
+<body onload="init()"> <!-- 실행하자마자 함수호ㅜㄹ -->
+	<!-- 입력할땐 꼭  form 이 이써양한다!!!!! -->
+	<form name="myform">
+		<select id="first" style="width:70px" onchange="firstChange()"></select>
+		<select id="second" style="width:70px;" onchange="secondChange()"></select>
+	</form>
+	
+	<div id="result"></div>
+</body>
+</html>
