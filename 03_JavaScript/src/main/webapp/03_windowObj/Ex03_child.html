@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>childwin</title>
+<script type="text/javascript">
+	function receiver() {
+		// alert('receiver');
+		
+		// 자식창을 연쪽, 즉 부모창을 opener라고 한다.
+		window.myform.childid.value = opener.myform.id.value;
+		myform.childpw.value = window.opener.myform.pw.value;
+	}
+	
+	function meClose() {
+		opener.myform.id.value = myform.childid.value;
+		opener.myform.pw.value = myform.childpw.value;
+		//window.close();
+		self.close(); // 위에꺼도 되지만 현재 자신의 창을 닫으라는 의미로 이런것도 가능함!
+	}
+</script>
+</head>
+<body onload="receiver()">
+	<form name="myform">
+		<input type="text" name="childid"><br>
+		<input type="password" name="childpw"><br>
+		<input type="button" value="팝업창 닫기" onClick="meClose()">
+	</form>
+</body>
+</html>

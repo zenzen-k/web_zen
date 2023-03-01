@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	function showPopup(){
+		window.open('Ex02_popup2.html','pop2','');
+	}
+	function openPopup() {
+		w = 300;
+		h = 200;
+		l = 50;
+		t = 100;
+		
+		option = "width=" +w + "higth=" +h +"left=" +l +"top=" +t;
+		mywin = window.open('Ex02_popup3.html','pop3',option);
+	}
+	function closePopup() {
+		// 3번 팝업창을 닫음
+		mywin.close();
+	}
+</script>
+</head>
+<body>
+	<input type="button" value="팝업1" onClick="window.open('Ex02_popup1.html','pop1')">
+	<input type="button" value="팝업2" onClick="showPopup()">
+	<input type="button" value="팝업3" onClick="openPopup()">
+	<input type="button" value="팝업4" onClick="closePopup()">
+</body>
+</html>

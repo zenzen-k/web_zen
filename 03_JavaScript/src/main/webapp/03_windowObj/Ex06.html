@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	img{
+		width: 200px;
+		height: 200px;
+	}
+</style>
+<script type="text/javascript">
+	arr = ['pic1.jpg','pic2.jpg','pic3.jpg','pic4.jpg'];
+	cnt = 0;
+	/* function abc() {
+		if(cnt == 4){
+			cnt=0;
+		}
+		var result = "<img src='./../images/"+arr[cnt++]+"'>";
+		area = document.getElementById("myimg");
+		area.innerHTML = result;
+	}
+	window.setInterval(abc,1000); */
+	
+	// 다른방법 - 함수대신 해야할 일을 작성
+	var image = window.setInterval(function(){
+		if(cnt == 4){
+			cnt=0;
+		}
+		var result = "<img src='./../images/"+arr[cnt++]+"'>";
+		area = document.getElementById("myimg");
+		area.innerHTML = result;
+	},500);
+	
+	// 10초있다가 딱 한번만 실행된다.
+	setTimeout(function () {
+		clearInterval(image); // interval 멈추고 싶을 때 
+		area = document.getElementById("myimg");
+		area.innerHTML = "setInterval 설정 중단";
+	}, 10000);
+</script>
+</head>
+<body>
+	<div id="myimg"></div>
+</body>
+</html>

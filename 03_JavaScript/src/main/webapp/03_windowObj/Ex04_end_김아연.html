@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	body{
+		text-align: center;
+	}
+</style>
+<script type="text/javascript">
+	arr = ['더하기','뻬기','곱하기','나누기'];
+	cindex = 0;
+	function init() {
+		//alert("init");
+		for(i=0; i<arr.length; i++){
+			myform.calculation.options[i] = new Option(arr[i]);
+		}
+	}
+	
+	function winclose() {
+		//alert("close");
+		a = Number(myform.num1.value);
+		b = Number(myform.num2.value);
+		
+		switch (cindex) {
+		case 0: opener.myform.result.value = a+b; break;
+		case 1: opener.myform.result.value = a-b; break;
+		case 2: opener.myform.result.value = a*b; break;
+		case 3: opener.myform.result.value = a/b; break;
+		}
+		window.close();
+	}
+	
+	function change() {
+		//alert("change");
+		cindex = myform.calculation.selectedIndex;
+	}
+	
+	function check(no){
+		var val = "0123456789";
+		if(no=="num1"){
+			str = document.myform.num1.value;
+			for(i=0; i<str.length; i++){
+				if(val.indexOf(str.substring(i,i+1)) < 0){
+					alert('숫자만 허용합니다.');
+					myform.num1.value = str.replace(str.charAt(str.length-1),"");
+				}//if
+			}//for
+		}
+		else{
+			str = document.myform.num2.value;
+			for(i=0; i<str.length; i++){
+				if(val.indexOf(str.substring(i,i+1)) < 0){
+					alert('숫자만 허용합니다.');
+					myform.num2.value = str.replace(str.charAt(str.length-1),"");
+				}//if
+			}//for
+		}
+	}
+</script>
+</head>
+<body onload="init()">
+	<form name="myform">
+		<input type="text" name="num1" style="width: 70px" onKeyup="check('num1')">
+		<select id="calculation" style="width: 70px;" onchange="change()"></select>
+		<input type="text" name="num2" style="width: 70px" onKeyup="check('num2')"><br>
+		<input type="button" value="닫기" style="position: relative; top: 100px;" onClick="winclose()">
+	</form>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	/* 입력값이 숫자인지 확인 */
+	function numcheck(){ 
+		//alert('check()');
+		var val = "0123456789";
+		
+		// 입력한 값을 알아내기
+		str = document.jumin.jumin_1.value;
+		//alert(a);
+			// subString (i, i+1) -> 0,1 이면 0번째 자리를 가져온당
+			// 예를들어 가져온게 3이면, val의 length에서 3의 위치인 3을 가져온다.
+			// 이때 한글같은 것을 입력하면 값이 없어 -1이 나오므로 if문이 참이 되어 alert이 출략됨
+		for(i=0; i<str.length; i++){
+			if(val.indexOf(str.substring(i,i+1)) < 0){
+				alert('숫자만 허용합니다.');
+				// 마지막글자를 지움
+				document.jumin.jumin_1.value = str.replace(str.charAt(str.length-1),"");
+			}//if
+		}//for
+		
+		if(str.length == 6){
+			document.jumin.jumin_2.focus(); // 키보드를 누를때마다 개수가 6개인지 확인함.
+		}
+	}//check()
+	
+	/* 첫번째 창이 포커스를 잃었을 때*/
+	function validCheck(){
+		// 주민번호 앞자리에서 번호를 가져옴.
+		temp1 = document.jumin.jumin_1.value.substr(0,2);
+		temp2 = document.jumin.jumin_1.value.substr(2,2);
+		temp3 = document.jumin.jumin_1.value.substr(4,2);
+		//temp3 = document.jumin.jumin_1.value.slice(4,6);
+		//alert(temp1+","+temp2+","+temp3);
+		
+		if(temp2<1 || temp2>12){
+			alert('월이 잘못되었음');
+		}
+		if(temp3<1 || temp3>31){
+			alert('일이 잘못되었음');
+		}
+		
+		/* document.jumin.birth_1.value = temp1;
+		document.jumin.birth_2.value = temp2;
+		document.jumin.birth_3.value = temp3; */
+		
+		
+	}//validCheck()
+	
+	function birthInput(){
+		str = document.jumin.jumin_2.value.charAt(0);
+		if(str==1 || str==2){
+			document.jumin.birth_1.value = "19" + document.jumin.jumin_1.value.substr(0,2);
+		}
+		else if(str==3 || str==4){
+			document.jumin.birth_1.value = "20" + document.jumin.jumin_1.value.substr(0,2);
+		}
+		document.jumin.birth_2.value = document.jumin.jumin_1.value.substr(2,2); 
+		document.jumin.birth_3.value = document.jumin.jumin_1.value.substr(4,2); 
+		
+		
+	}//birthInput()
+	
+	function check(){
+		str = document.jumin.jumin_2.value;
+		if(str.length == 7){
+			document.jumin.birth_1.focus(); 
+		}
+	}//check()
+</script>
+</head>
+<body>
+	<form name="jumin">
+		주민등록번호
+		<!-- maxlength: 최대길이.6글자까지만 들어간다. size: 한글로 7글자가 보일만한 너비로 설정  -->
+		<!-- value로 기본값을 넣을 수 있다. -->
+		<input type="text" name="jumin_1" maxlength="6" size="7" onKeyup="numcheck()" onBlur="validCheck()"> - 
+		<input type="text" name="jumin_2" maxlength="7" size="8" onKeyup="check()" onBlur="birthInput()">
+		<br><br>
+		
+		생년월일
+		<input type="text" name="birth_1" maxlength="4" size="4">년
+		<input type="text" name="birth_2" maxlength="2" size="2">월
+		<input type="text" name="birth_3" maxlength="2" size="2">일
+		
+	</form>
+</body>
+</html>

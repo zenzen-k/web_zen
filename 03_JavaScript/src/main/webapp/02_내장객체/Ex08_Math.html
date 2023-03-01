@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	// 자바에서도 Math 는 new사용 X 여기서도 마찬가지
+	var a = Math.max(1,4,2,6,24,10,9);
+	// 자바와는 차이점이 자바에서는 2개만 작성할 수 있었는데 여기서는 여러개 사용 가능
+	document.write('a' + a + "<br>");
+	document.write('min : ' + Math.min(1,5,2,4,7,39)+"<br>");
+	document.write('floor : ' + Math.floor(7.987)+"<br>");
+	document.write('parseInt : ' + parseInt(7.787)+"<br>"); //floor와같음
+	document.write('ceil : ' + Math.ceil(7.187)+"<br>");
+	document.write('round : ' + Math.round(7.187)+"<br>");
+	document.write('round : ' + Math.round(7.787)+"<br>");
+	
+	// 난수의 범위 : 0이상~ 1미만의 실수. 1포함X
+	var num1 = Math.random();
+	document.write("num1 : " + num1 +"<br>");
+	
+	// 10 ~ 27 사이의 정수 난수
+	// 27 - 10 + 1 18
+	var num2 = parseInt((Math.random()*18)+10);
+	document.write("num2 : " + num2 +"<br>");
+	
+	var count=0;
+	do{
+		count++;
+		var input = parseInt(prompt("10~27 사이의 숫자를 입력하세요."));
+		if(input < num2){
+			alert('더 큰 수를 입력하세요');
+		}
+		else if(input > num2){
+			alert('더 작은 수를 입력하세요');
+		}
+		else{
+			alert('맞췄습니다.');			
+			break;
+		}
+	} while (true)
+	document.write("시도한 횟수: " + count);
+</script>
+</head>
+<body>
+	
+</body>
+</html>

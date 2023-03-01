@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	var str = "태양처럼 뜨거운, 바람처럼 자유로운 영혼";
+	//var str = new String("태양처럼 뜨거운, 바람처럼 자유로운 영혼"); 이런방식도가능~
+	document.write(str + "<br>");
+	document.write(str.toString() + "<br>");
+	
+	document.write(str.length + "<br>");
+	
+	ch = str.charAt(5);
+	document.write('ch : '+ ch + "<br>");
+	document.write(str.indexOf("뜨거운") + "<br>");
+	document.write(str.indexOf("가나다") + "<br>");
+	
+	document.write(str.slice(1,3) + "<br>");
+	document.write(str.substring(1,3) + "<br>");
+	
+	document.write(str.slice(1,-3) + "<br>");
+	document.write(str.substring(1,-3) + "<br>");
+
+	document.write(str.substr(10,4) + "<br>");
+	
+	//변경출력
+	document.write(str.replace('럼','가') + "<br>");
+	document.write(str.replace(/럼/g,'가') + "<br>");
+	
+	word = "I Can Do It!";
+	document.write(word.toUpperCase() + "<br>");
+	document.write(word.toLowerCase() + "<br>");
+</script>
+</head>
+<body>
+	
+</body>
+</html>
