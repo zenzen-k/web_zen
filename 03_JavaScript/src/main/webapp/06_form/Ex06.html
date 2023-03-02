@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	function check() {
+		//alert(1);
+		
+		//form도 아까 name처럼 여러개가 있다면 배열처리가 된다. -> forms
+		var msg = document.forms[0].code.value;
+		//우편번호 000-000
+		var regex = /^\d{3}-?\d{3}$/;
+		
+		//주민번호
+		regex = /^\d{6}-[1-4]\d{6}$/;
+		
+		// 생년월일 2000.3.4 2000.04.05 2000 03 04 2000-03-12
+		regex = /^\d{4}[ .-]([01]?\d)[ .-]([0123]?\d)$/;
+		// - 의 위치를 주의해야한다.
+		regex = /^\d{4}[ ./-]([01]?\d)[ ./-]([0123]?\d)$/;
+		// /^(\d{4})[ .-]([01]?\d)[ .-]([0-3]?\d)$/
+		
+		
+		//이메일 패턴
+		regex = /^[a-zA-Z0-9]{4,8}@[a-zA-Z0-9]{3,5}[.][a-z]{3,4}$/;
+		
+		
+		if(msg.search(regex) == -1){ // 입력한 값이 패턴에 맞지 않으면 -1을 리턴한다.
+			alert("잘못된 형식");
+		}
+		else{
+			alert("올바른 형식");
+		}
+	}
+</script>
+</head>
+<body>
+	<form>
+		<input type="text" name="code">
+		<input type="button" value="클릭" onclick="check()">
+	</form>
+</body>
+</html>

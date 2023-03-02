@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	var today = new Date();
+	document.write(today + "<br>");
+	
+	function goNaver() {
+		location.href = "https://www.naver.com/";
+	}
+</script>
+</head>
+<body>
+	<!-- 다시 불러들이는, 새로고침 -->
+	<input type="button" value="지금 몇시죠?" onclick="location.reload()">
+	<br>
+	<!-- a태그도 되지만 이렇게 쓸수도 있다. 해당 링크로 이동함 -->
+	<input type="button" value="다음" onclick="location.href='https://www.daum.net/'">
+	<br>
+	<!-- 함수를 호출할 수도 있다. -->
+	<input type="button" value="네이버" onclick="goNaver()"> 
+</body>
+</html>

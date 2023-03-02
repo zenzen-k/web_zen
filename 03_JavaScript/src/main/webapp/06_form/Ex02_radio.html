@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	function check() {
+		
+		str = "선택한 항목은 \n";
+		
+		len = myform.movie.length; // 무비의 개수
+		/* alert('movie의 개수 : ' + len); */
+		
+		// var movie = Array(3); -> radio버튼 알아서 배열이 만들억짐
+		
+		flag = false;
+		for (i=0; i<len; i++){ // i=0 1 2 ...
+			if(myform.movie[i].checked){ // 체크된것이 있다면 참.
+				str += myform.movie[i].value + "\n";
+				flag = true;
+				break;
+			}
+		} // 반복해서 모든 radio 타입을 다 체크 했다면
+		if(flag == false){
+			alert('movie 하나는 선택해야 합니다.');
+			return false;
+		}
+		
+		flag = false;
+		for(i=0; i<myform.music.length; i++){
+			if(myform.music[i].checked){
+				str += myform.music[i].value + "\n";
+				flag = true;
+				break;
+			}
+		}// for
+		if(flag == false){
+			alert('music 하나는 선택해야 합니다.');
+			return false;
+		}
+		
+		alert(str);
+	}
+</script>
+</head>
+<body>
+<form name="myform" action="abc.jsp">
+	<p>
+		1.가장 좋아하는 영화 한 개만을 선택하세요.<br>
+		<!-- checked="checked" -> 작성하면 기본값으로 되고, 내가 선택한 것에 checked속성이 생김 -->
+		<input type="radio" name="movie" value="인디아나 존스">인디아나 존스
+		<input type="radio" name="movie" value="해리 포터" >해리 포터
+		<input type="radio" name="movie" value="반지의 제왕">반지의 제왕
+	</p>
+	<hr>
+	<p>
+		2.좋아하는 노래를 선택하세요.<br>
+		<input type="radio" name="music" value="세월이 가면">세월이 가면
+		<input type="radio" name="music" value="붉은 노을">붉은 노을
+		<input type="radio" name="music" value="희망 사항">희망 사항
+		<input type="radio" name="music" value="신데렐라">신데렐라
+	</p>
+	<hr>
+	<input type="submit" name="btn" value="확인" onClick="return check()">
+</form>
+</body>
+</html>
