@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<script type="text/javascript">
+	function meclose() {
+		// NaN : Not a Number 숫자가 아닌게 참이라면 ~
+		if(isNaN(window.document.myform.su1.value) || isNaN(myform.su2.value)){
+			alert("숫자가 아닙니다");
+			return; //숫자가 아닐때 다시 돌아가야 함. 아래코드 실행 X
+		}
+	
+		/* 별도의 su1, su2 변수이다. 텍스트타입의 su1,su2와는 다른거 */
+		su1 = Number(myform.su1.value);
+		su2 = +(myform.su2.value);
+		
+		oper = myform.operator.value;
+		
+		switch(oper){
+		case "1": result = su1+su2; break;
+		case "2": result = su1-su2; break;
+		case "3": result = su1*su2; break;
+		case "4": result = su1/su2; break;
+		}
+		
+		opener.myform.result.value = result;
+		self.close(); // window.close();
+	}//meclose
+</script>
+<body>
+	<form name="myform">
+		<input type="text" name="su1" value="14" size="5">
+		<!-- 변하지 않는 옵션이라 여기서 하는게 더 나음! -->
+		<select name="operator">
+			<option value="1">더하기</option>
+			<option value="2">뺴기</option>
+			<option value="3">곱하기</option>
+			<option value="4">나누기</option>
+		</select>
+		<input type="text" name="su2" value="7" size="5">
+		<br><br>
+		<input type="button" value="닫기" onClick="meclose()">
+	</form>
+</body>
+</html>

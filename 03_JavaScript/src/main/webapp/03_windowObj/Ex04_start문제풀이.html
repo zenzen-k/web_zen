@@ -4,16 +4,17 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script type="text/javascript">
-	function openWin(winfo) {
-		window.open(winfo,'pop','width=400, height=300');
+	function openWin() {
+		var option = "width=400, height=300"
+		window.open('Ex04_end문제풀이.html','pop',option);
 	}
 </script>
 </head>
 <body>
-	<h3>열기 버튼을 클릭하세요(start.html)</h3>
+	<h3>열기 버튼을 클릭하세요</h3>
 	<form name="myform">
 		결과 : <input type="text" name="result"><br><br>
-		<input type="button" value="열기" onClick="openWin('Ex04_end_김아연.html')"><br>
+		<input type="button" value="열기" onClick="openWin()">
 	</form>
 </body>
 </html>
