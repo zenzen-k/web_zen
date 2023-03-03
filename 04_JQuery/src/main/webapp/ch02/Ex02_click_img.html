@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	#left_side div{
+		float: left; /* 작업대상에 포함은 안되지만 그 다음거까지는 영향이 생김.. */
+		margin-right: 10px;
+	}
+	#right_side{
+		clear: left;
+	}
+</style>
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$('#clock1').click(function() {
+			//alert(1);
+			// 1->0 , 2->1, 0->2 
+			temp = $('img:eq(0)').attr('src'); // 값을 안쓰면 속성을 가지고 오라는 뜻.
+			//alert(temp);
+			
+			//alert($('img').length);
+			for(i=0; i<$('img').length-1; i++){
+				// 속성 eq도 있고, 함수 eq도 사용된당.
+				$('img').eq(i).attr('src',$('img').eq(i+1).attr('src'));
+			}
+			$('img').eq($('img').length-1).attr('src', temp);
+			
+			/* $('img:eq(0)').attr('src', $('img:eq(1)').attr('src'));
+			$('img:eq(1)').attr('src', $('img:eq(2)').attr('src'));
+			$('img:eq(2)').attr('src', temp); */
+		});
+		
+			//해보기
+		$('#clock2').click(function() {
+			temp = $('img:eq(0)').attr('src');
+		});
+	}); // ready
+</script>
+</head>
+<body>
+	<div id="left_side">
+		<div>
+			<!-- div라서 이미지가 옆으로 안나오고 밑으로 쥬륵 나옴 -->
+			<img src="../images/im0.jpg" width="90" height="90">
+		</div>
+		<div>
+			<img src="../images/im1.jpg" width="90" height="90">
+		</div>
+		<div>
+			<img src="../images/im2.jpg" width="90" height="90">
+		</div>
+	</div>
+	
+	<div id="right_side">
+		<input type="button" id="clock1" value="시계방향">
+		<input type="button" id="clock2" value="반시계방향">
+	</div>
+</body>
+</html>

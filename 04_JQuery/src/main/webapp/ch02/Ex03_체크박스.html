@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	img{
+		width: 150px;
+		height: 150px;
+	}
+	
+</style>
+
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		//alert(1);
+		/* 버튼 클릭했을 때 체크된 이미지 가져와서 div영역에 그림 올리기 */
+		$('input[type=button]').click(function() {
+			var result="";
+			// input의 checked된 것이 작업대상. 개수를 clen에 넣음
+			clen = $('input:checked').length;
+			//alert(clen);
+			
+			/* 체크한 체크박스만 각 보면서 할일작성. 작업대상이된당 */
+			$('input:checked').each(function() {  // each는 반복문과 마찬가지
+				// alert($(this).attr("id"));
+				idval = $(this).attr("id");
+				result += "<img src='../images/"+idval+".jpg'>";
+			}); //each
+			
+			// html() 있던건 지워지고 새로 선택한거만 보인당
+			$('#myarea').html(result);
+		}); // click
+	}); //ready
+</script>
+
+</head>
+<body>
+	<p>
+		<input type="checkbox" id="Koala">코알라
+		<input type="checkbox" id="Penguins">펭귄
+		<input type="checkbox" id="Desert">사막
+	</p>
+	
+	<p>
+		<input type="button" id="makeImage" value="그림만들기">
+	</p>
+	
+	<div id="myarea"></div>
+</body>
+</html>

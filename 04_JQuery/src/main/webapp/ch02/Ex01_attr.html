@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	
+</style>
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		// attr : 속성
+		$('img:eq(0)').attr("src","../images/im0.jpg")
+					.attr("title","갱얼쥐")
+					.attr("alt","강아지 이미지")
+					.css('border','3px solid red');
+		// 같은속성이 여럭일때엔 이렇게도 넣을 수 있당
+		$('img:eq(1)').attr({
+					"src" : "../images/Koala.jpg",
+					"title" : "코알라",
+					'width' : '100px'
+				}).css({
+					'border' : '3px dotted aqua',
+					background : 'yellow'
+				});
+		
+		$('#btn').click(function() {
+			//alert(1);
+			$('img:eq(1)').removeAttr('title');
+			$('img:eq(1)').css('border','5px solid green');
+		});
+	}); // ready
+</script>
+</head>
+<body>
+	<img><img>
+	<br><br>
+	<button id="btn">속성 설정</button>
+</body>
+</html>

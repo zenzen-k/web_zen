@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	fo{
+		text-decoration: underline;
+	}
+</style>
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$('span:first-child').css('backgroundColor','yellow');
+		$('span:first').css('color','orange');
+		
+		$('span:nth-child(even)').css('font-style','italic').css('text-decoration', 'underline');
+		
+		$('span:last-child').css('backgroundColor','red');
+		$('span:last').css('color','cyan');
+	});
+</script>
+</head>
+<body>
+	<p>
+		<span>jQuery예제1</span>
+		<span>jQuery예제2</span>
+		<span>jQuery예제3</span>
+	</p>
+	
+	<p>
+		<span>jQuery예제4</span>
+		<span>jQuery예제5</span>
+		<span>jQuery예제6</span>
+	</p>
+	
+	<p>
+		<span>jQuery예제7</span>
+		<span>jQuery예제8</span>
+		<span>jQuery예제9</span>
+	</p>
+</body>
+</html>

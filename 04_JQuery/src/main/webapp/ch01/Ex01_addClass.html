@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Ex01</title>
+<style type="text/css">
+	.spotlight{
+		background-color: yellow;
+	}
+	.redText{
+		color: red;
+	}
+	.largeText{
+		font-size: 30pt;
+	}
+	.italicText{
+		font-style: italic;
+	}
+	.under{
+		text-decoration: underline;
+	}
+</style>
+<!-- import 하듯이 이렇게 해주어야 한다! -->
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script type="text/javascript">
+	//도큐먼트 영역이 준비되었을 때 해야되는 일
+	$(document).ready(function(){
+		//alert(1);
+		
+		// span이라는 작업대상에 addClass를 할거다, (클래스추가)
+		$('span').addClass('redText');
+		$('div').addClass('spotlight');
+		
+		$('#text1').addClass('largeText');
+		$('.text1').addClass('italicText');
+		$('#text3').addClass('under');
+	}); 
+</script>
+</head>
+<body>
+	<span id="text1">simple</span>
+	<div class="text1">jQuery</div>
+
+	<span id="text2">basic</span>
+	<div id="text3">example</div>
+</body>
+</html>

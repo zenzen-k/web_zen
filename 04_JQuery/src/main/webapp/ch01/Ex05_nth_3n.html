@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	td{
+		width: 50px;
+		height: 30px;
+		text-align: center;
+	}
+</style>
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script type="text/javascript">
+	
+	str = "<table border='1'>";
+	num=1;
+	for(i=0; i<4; i++){
+		str += ("<tr>");
+		for(j=0; j<7; j++){
+			str += ("<td>" + num++);
+			str += ("</td>");
+		}
+		str += ("</tr>");
+	}
+	str += "</table>";
+	document.write(str);
+	
+	$(document).ready(function() {
+		// 여러개의 테이블이 아니므로 child를 굳이 안붙여도 된다
+		// $('tr:eq(0)').css('backgroundColor','orange'); 
+		$('tr:first').css('backgroundColor','orange'); 
+		$('td:eq(3)').css('backgroundColor','blue'); 
+		//$('tr:eq(1)>td:nth-child(even)').css('backgroundColor','gray'); 
+		$('tr:nth-child(2) td:nth-child(even)').css('backgroundColor','gray'); 
+		$('tr:eq(2)>td:nth-child(odd)').css('backgroundColor','pink'); 
+		
+		$('tr:eq(3)>td:nth-child(3n)').css('backgroundColor','yellow'); 
+		$('tr:eq(3)>td:nth-child(3n+1)').css('backgroundColor','green'); 
+		
+		var sum = 0;
+		/* $('tr:first').each(function() {
+			sum += Number($(this).text());
+		});
+		$('#result').append(sum); */
+		
+		$('tr:eq(0) td').each(function() {
+			//alert($(this).text());
+			sum += Number($(this).text());
+		});
+		$('#result').append(sum);
+	});
+</script>
+</head>
+<body>
+	<br><br>
+	<div id='result'>
+		합계: 
+	</div>
+</body>
+</html>

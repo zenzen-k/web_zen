@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script type="text/javascript">
+	$(document).ready(function () {
+		//alert(1);
+		
+		$('p em').css('background-color','yellow')
+				.css('border','2pt solid #f00')
+				.each(function() {
+					$('.result1').append($(this).text() + " "); 
+					// this -> 내가 지금 보고 있는. text-> 텍스트를 가져와서 .result1에 one을 추가하게된다. 순서대로.. 
+				}); // 메서드 체이닝
+		$('div>em').css('background-color','pink')
+				.each(function() {
+					$('.result2').append($(this).text());
+				});
+		$('em+span').css('background-color','orange').css('border','1pt solid blue');
+	});
+</script>
+</head>
+<body>
+	<p>
+		<em>one</em> <!-- 약간 기울어진, i 도 있ㅇㅁ -->
+		<em>two</em>
+		<span><em>three</em></span> <!-- p의 자손 -->
+	</p>
+	<div>
+		<em>four</em>
+		<span><em>five</em></span>
+		<span><em>six</em></span>
+	</div>
+	
+	<div>
+		<span>검색된 엘리먼트1: </span>
+		<span class="result1"></span>
+	</div>
+	<div>
+		<span>검색된 엘리먼트2: </span>
+		<span class="result2"></span>
+	</div>
+</body>
+</html>
