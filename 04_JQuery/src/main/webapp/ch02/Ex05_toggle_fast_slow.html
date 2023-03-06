@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		// p태그중에 클래스가 a 인것을 클릭했을 때 alert 띄우기
+		// p의 속성을 사용할땐 [ ] ! 잊지말기
+		// '.a' -> div a 인것이 있을 수도 있당. 그러면 거기에도 적용돼서 놉!
+		// 또는 p.a 도 가능하다! (p .a 는 p의 자손중 a클래스를 말하니까 이건 안됨)
+		$('p[class=a]').click(function() { 
+			//alert(1);
+			//$('p.b').toggle(); // 남자배우 인기순위 눌렀을 때 b들이 접힘
+			// 접히는 모션을 슬로우로 변경된다. -> 관리자모드로 보면 높이, 마진, 패딩 등의 설정들이 줄어듬을 볼 수 있음.
+			$('p.b').toggle(5000); 
+		});
+		
+		//여자배우 인기순위 누르면 빨리(fast) 사라졌다 나타나게 하기
+		$('p.c').click(function() {
+			$('p.d').toggle('fast');
+		});
+	}); //ready
+</script>
+</head>
+<body>
+	<p class="a">남자배우 인기순위</p>
+	<p class="b">이승기</p>
+	<p class="b">현빈</p>
+	<p class="b">송중기</p>
+	<p class="b">송강호</p>
+	<p class="b">황정민</p>
+	
+	<hr>
+	
+	<p class="c">여자배우 인기순위</p>
+	<p class="d">공효진</p>
+	<p class="d">아이유</p>
+	<p class="d">웬디</p>
+	<p class="d">수지</p>
+	<p class="d">이효리</p>
+</body>
+</html>

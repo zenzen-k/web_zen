@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	div{
+		width: 60px;
+		height: 60px;
+		margin: 10px;
+		float: left; /* 옆으로 흐르게 */
+	}
+	.redBorder{
+		border: 1px solid red;
+	}
+	p{
+		clear: left;
+	}
+	.yellow{
+		background: yellow;
+	}
+</style>
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		//alert(1);
+		
+		// 버튼을 클릭했을 때 div영역에 빨간색 테두리 적용
+		$('button').click(function() {
+			$('div').addClass('redBorder').add('p').addClass('yellow');
+			// $('p').addClass('yellow'); 옐로우가 겹칠때는 이렇게 쓰지말구 위에 add('p') 해주기
+		});
+		
+	}); //ready
+</script>
+</head>
+<body>
+	<div></div>
+	<div></div>
+	<div></div>
+	<p>이곳은 p영역입니다</p>
+	<button>클릭</button>
+</body>
+</html>

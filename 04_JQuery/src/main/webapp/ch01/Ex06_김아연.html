@@ -14,12 +14,26 @@
 			
 			if($(this).text()>=80){
 				$(this).css('backgroundColor','cyan');
+				$(this).prev().css('backgroundColor','cyan');
+				$(this).next().css('backgroundColor','cyan');
 			} else if($(this).text()>=40){
 				$(this).css('backgroundColor','yellow');
+				$(this).siblings().css('backgroundColor','yellow');
 			} else{
-				$(this).css('backgroundColor','red');
+				//$(this).css('backgroundColor','red');
+				$(this).parent().css('backgroundColor','red');
 			}
 		});
+		
+		$('td:nth-child(3)').each(function() {
+			if($(this).text() == '남'){
+				$(this).css('color','green');
+				$(this).siblings().css('color','green');
+			} else {
+				$(this).parent().css('color','orange');
+			}
+		});
+		
 		//alert(sum);
 		$('.result').append("총합 : " + sum + "<br>");
 		$('.result').append("평균 : " + sum/$('td:nth-child(2)').length);

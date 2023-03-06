@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	div{
+		width: 60px;
+		height: 60px;
+		margin: 5px;
+		float: left;
+		border: 2px green solid;
+	}
+</style>
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		//alert(1);
+		
+		$('div').css('background','yellow')
+				.filter(function(index) { // function안의 index에는 작업대상의 위치번호가 들어간다. 0~5
+					//alert(index);
+				
+					// 1이되면 true가 리턴된다. true일때만 아래 css가 적용됨~
+					// 오른쪽 : 현재의 id속성을 가져왔을 때 fourth일때.
+					return index == 1 || $(this).attr('id')=='fourth'; 
+				})
+				.css('border-color','red');
+
+	}); //ready
+</script>
+</head>
+<body>
+	<div id="first"></div>
+	<div id="second" class="middle"></div>
+	<div id="third" class="middle"></div>
+	<div id="fourth" class="middle"></div>
+	<div id="fifth" class="middle"></div>
+	<div id="sixth"></div>
+	
+	<p class="middle"></p>
+</body>
+</html>
