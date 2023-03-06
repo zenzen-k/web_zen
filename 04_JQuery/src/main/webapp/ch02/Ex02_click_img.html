@@ -35,7 +35,13 @@
 		
 			//해보기
 		$('#clock2').click(function() {
-			temp = $('img:eq(0)').attr('src');
+			/* temp = $('img:eq(0)').attr('src');
+			
+			for(i=$('img').length-1; i>0; i--){
+				// 속성 eq도 있고, 함수 eq도 사용된당.
+				$('img').eq(i+1).attr('src',$('img').eq(i).attr('src'));
+			}
+			$('img').eq(0).attr('src', temp); */
 		});
 	}); // ready
 </script>

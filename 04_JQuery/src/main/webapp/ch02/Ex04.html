@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	.redPink{
+		color: red;
+		background-color: pink;
+	}
+	.blueYellow{
+		color: blue;
+		background-color: yellow;
+	}
+	.under{
+		text-decoration: underline;
+	}
+</style>
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		//alert(1);
+		$('button').click(function() {
+			//alert(1);
+			$('#tg1 li').toggle(); // 토글 > 누르면 나오고 사라지고 (노션에서 내가 많이 쓰던 기능)
+		});
+		
+		//$('#tg1 li').toggle(); // 시작하자마자 누른상태
+		$('#tg1 li').toggle(first,second,third); // 해당 li를 클릭할때마다 함수를 호출한다
+		
+		$('#tg2 li').click(tgClick); // tg2 li를 클릭했을 때 호출
+	});
+	
+	function tgClick() {
+		$(this).toggleClass('redPink'); // this는 tg2 li
+	}
+	
+	
+	function first() {
+		$(this).addClass('blueYellow');
+	}
+	function second() {
+		$(this).removeClass('blueYellow');
+	}
+	function third() {
+		$(this).addClass('under');
+	}
+</script>
+</head>
+<body>
+	<h1>toggle 함수 사용하기</h1>
+	<ul id="tg1">
+		<li><h3>방탄소년단</h3>
+		<li><h3>방탄소년단</h3>
+		<li><h3>방탄소년단</h3>
+	</ul>
+	<hr>
+	<h1>toggle 함수 사용하기</h1>
+	<ul id="tg2">
+		<li><h3>소녀시대</h3>
+		<li><h3>레드벨벳</h3>
+		<li><h3>뉴진스</h3>
+	</ul>
+	
+	<button>버튼</button>
+</body>
+</html>

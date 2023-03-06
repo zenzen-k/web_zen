@@ -7,7 +7,11 @@
 <script type="text/javascript">
 	$(document).ready(function() {
 		
-		$('tr td:nth-child(2)').each(function() {
+		sum = 0;
+		$('td:nth-child(2)').each(function() {
+			//alert($(this).text());
+			sum += Number($(this).text());
+			
 			if($(this).text()>=80){
 				$(this).css('backgroundColor','cyan');
 			} else if($(this).text()>=40){
@@ -16,7 +20,9 @@
 				$(this).css('backgroundColor','red');
 			}
 		});
-		
+		//alert(sum);
+		$('.result').append("총합 : " + sum + "<br>");
+		$('.result').append("평균 : " + sum/$('td:nth-child(2)').length);
 	});
 </script>
 </head>
