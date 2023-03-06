@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script type="text/javascript">
+	$(function() {
+		//alert(1);
+		
+		$('footer').before('<div>좋아하는 과일 : 사과</div>');
+		$('footer').before('<div>좋아하는 과일 : 포도</div>');
+
+		$('<div>좋아하는 과일 : 바나나</div>').insertBefore('footer');
+		$('<div>좋아하는 과일 : 복숭아</div>').insertBefore('footer');
+	});
+</script>
+</head>
+<body>
+	<header>
+		<h2>과일</h2>
+	</header>
+	
+	<footer>
+		<h3>
+			<i>jQuery</i>
+		</h3>
+	</footer>
+</body>
+</html>

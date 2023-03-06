@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	div{
+		background-color: yellow;
+		width: 30%;
+	}
+</style>
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script type="text/javascript">
+	$(function() {
+		// 또는 button:eq(0)
+		$('#btnEmpty').click(function() {
+			$('div').empty().append('<b>hi~</b>');
+		});
+	
+		$('#btnRemove').click(function() {
+			$('div').remove();
+			$('div').append('<b>hi~</b>');
+		});
+		
+	}); // ready
+</script>
+</head>
+<body>
+	<div>
+		<p>JavaScript</p>
+		<p>jQuery</p>
+	</div>
+	
+	<br><br>
+	<input type="button" id="btnEmpty" value="영역의 내용삭제">
+	<br>
+	<input type="button" id="btnRemove" value="영역 자체 삭제">
+</body>
+</html>
