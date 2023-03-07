@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	body{
+		text-align: center;
+	}
+</style>
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script type="text/javascript">
+	$(function() {
+
+		str = '<select id="dan">';
+		for(i=1; i<10; i++){
+			str += '<option value=' + i + '>' + i + '단</option>';
+		}
+		str += '/<select>';
+		$('#area').append(str);
+		
+		// $('#dan','#btn').bind('change click',function()
+		// $('#dan').change(function() {
+		$('#dan','#btn').bind('click',function() {
+			$('#result').empty();
+			
+			dan = $('#dan').val();
+			str = "<br>" + dan + " 단<br><br>";
+			
+			for(i=1; i<10; i++){
+				str += dan + " * " + i + "=" + (dan*i) + "<br>";
+			}
+			$('#result').append(str);
+		});
+		
+		//버튼, 셀렉트변화
+	}); // ready
+</script>
+</head>
+<body>
+	<div id="area">
+		
+	</div>
+	<br>
+	<input type="button" id='btn' value="구구단 출력">
+	<div id="result">
+	
+	</div>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	ul{
+		float: left;
+		margin: 30px;
+	}
+</style>
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script type="text/javascript">
+	$(function() {
+		//alert(1);
+		
+		// a태그를 클릭했을 때 이미지 자리에 있는 이미지를 변경하기
+		$('a').bind('click mouseover',function() {
+			$('img').attr('src', $(this).attr('href'));
+			// 바뀌긴 하지만 a태그의 넘어가는 기능을 수행한다.
+			// 따라서 원래 기능을 수행하지 못하도록 해주어야 한다.
+			return false; // 이벤트 전파 방지
+		});
+		
+	});
+</script>
+</head>
+<body>
+	<ul>
+		<li><a href="../images/image3.jpg">강아지 사진</a></li>
+		<li><a href="../images/image4.jpg">고양이 사진</a></li>
+	</ul>
+	
+	<img src="../images/im0.jpg">
+</body>
+</html>

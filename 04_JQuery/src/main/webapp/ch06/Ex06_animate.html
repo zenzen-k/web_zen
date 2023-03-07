@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	#region{
+		width: 200px;
+		height: 200px;
+		margin: auto;
+		overflow: hidden; /* 넘치는거 숨기기 */
+	}
+	#images{
+		width: 600px;
+		height: 200px;
+	}
+	#images a img{
+		width: 200px;
+		height: 200px;
+	}
+	#direction{
+		width: 360px;
+		margin: auto;
+	}
+	.leftbtn{
+		margin-top: 20px;
+	}
+	.rightbtn{
+		margin-left: 290px;
+	}
+</style>
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script type="text/javascript">
+	$(function() {
+		var i = -1;
+		$('.leftbtn').bind('click', function() {
+			if(i==1){
+				alert('마지막 이미지입니다.');
+				return;
+			}
+			// 2초에 걸쳐 205줄인만큼 왼쪽 여백 설정해랏 -= 205 이렇게 띄워쓰기 하면 안되뮤
+			$('#first').animate({marginLeft : '-=205px'},2000); 
+			i++;
+		});
+		
+		$('.rightbtn').bind('click', function() {
+			if(i==-1){
+				alert('첫번째 이미지입니다.');
+				return;
+			}
+			$('#first').animate({marginLeft : '+=205px'},2000); 
+			i--;
+		});
+		
+	}); // ready
+</script>
+</head>
+<body>
+	<div id="region">
+		<div id="images">
+			<a href="#"><img src="../images/b.jpg" id="first"></a>
+			<a href="#"><img src="../images/c.jpg" id="second"></a>
+			<a href="#"><img src="../images/d.jpg" id="third"></a>
+		</div>
+	</div>
+	
+	
+	<!-- 방향설정하는 영역 -->
+	<div id="direction"> 
+		<button class="leftbtn">&laquo;</button> <!-- &laquo; : << -->
+		<button class="rightbtn">&raquo;</button> <!-- &raquo; : >> -->
+	</div>
+</body>
+</html>

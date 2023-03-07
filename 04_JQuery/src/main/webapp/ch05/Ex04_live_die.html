@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>ch05 - Ex04</title>
+<style type="text/css">
+	p {
+		background: yellow;
+		padding: 5px;
+		cursor: pointer;
+	}
+</style>
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script type="text/javascript">
+	$(function() {
+		cnt = 0;
+			
+		//$('p').dbclick(function() {
+		$('p').live('dblclick',function() {
+			//alert(1);
+			
+			//여러개가 계속,, 따라서 this 사용이 좋다.
+			//$('p').after('<p>Another paragraph!</p>');
+			$(this).after('<p>Another paragraph!'+ cnt++ +'</p>');
+			
+			// 새로 생성된 p태그는 이벤트 처리가 안됨,, -> live로 변경하면 해결!
+			
+			if(cnt==5){
+				$('p').die();
+			}
+		});
+		
+	}); // ready
+</script>
+</head>
+<body>
+	<p>Click me!</p>
+	
+</body>
+</html>

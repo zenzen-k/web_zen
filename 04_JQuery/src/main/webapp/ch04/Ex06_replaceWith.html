@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	div{
+		color: red;
+		border: 2px solid blue;
+		width: 200px;
+		margin: 5px;
+	}
+</style>
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script type="text/javascript">
+	$(function() {
+		//alert(1);
+		
+		$('button').click(function() {
+			// alert(2);
+			if($(this).text() == 'Second'){ // value가 아니라 text 임,,!
+				//alert(2);
+				
+				$(this).replaceWith('<div>' + $(this).text() + "</div>");
+			}
+		});
+		
+	})
+</script>
+</head>
+<body>
+	<button>First</button>
+	<button>Second</button>
+	<button>Third</button>
+</body>
+</html>

@@ -112,7 +112,7 @@
 		str += "주소 : " + myform.addr1.value + " " + myform.addr2.value + "\n";
 		
 		/* 이메일 검사 */
-		regexEm = /^[a-z0-9]*@[a-z]*\.[a-z]{2,3}$/;
+		regexEm = /^[a-z0-9]*@[a-z0-9]*\.[a-z]{2,3}$/;
 		if(myform.email.value.length == 0){
 			alert("이메일을 입력하세요");
 			myform.email.focus();

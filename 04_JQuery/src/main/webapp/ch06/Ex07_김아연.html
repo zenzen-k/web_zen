@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script type="text/javascript">
+	$(function() {
+		$('input[name=id]').focus(function() {
+			/* 포커스 생기면 기본값 숨기기 */
+			// prop('defaultValue') 기본값이라는 속성을 가져오라는 의미다.
+			// attr은 html에 작성된 눈에 보이는 속성을 가져오는 것이며
+			// prop은 기능과 관련된 속성을 가져온다.
+			if($('input[name=id]').val()==$('input[name=id]').prop('defaultValue')){ 
+				$('input[name=id]').val('');
+			}
+		});
+		
+	}); // ready
+	
+	function check() {
+		if($('input[name=id]').val()=="" || $('input[name=id]').val()==$('input[name=id]').prop('defaultValue')){
+			alert('아이디를 입력하세요');
+			$('input[name=id]').focus();
+			return false;
+		}
+		
+		if($('input[name=pw]').val()==""){
+			alert('비밀번호를 입력하세요');
+			$('input[name=pw]').focus();
+			return false;
+		}
+		if($('input[name=pwcheck]').val()==""){
+			alert('비밀번호 확인을 입력하세요');
+			$('input[name=pwcheck]').focus();
+			return false;
+		}else if($('input[name=pwcheck]').val() != $('input[name=pw]').val()){
+			alert('입력된 비밀번호가 다릅니다. 다시 입력하세요');
+			$('input[name=pwcheck]').select();
+			return false;
+		}
+		
+		if($('input[name=name]').val().length==0){ // 또는 이런식으로 길이를 비교할 수도 있당!
+			alert('이름을 입력하세요');
+			$('input[name=name]').focus();
+			return false;
+		}
+		
+		// if($('select').val()==""){ 또는
+		// 선택하면 해당 option에 selected 속성이 들어감. 그걸로 비교함!
+		if($('select option:selected').val()==""){  // 현재 선택의 value는 "" 이당
+			alert('지역번호를 선택하세요');
+			$('select').focus();
+			return false;
+		}
+		
+		// 공백은 처리를 못하는 문제가 생김 - 모든 공백 제거 함수 trim()
+		
+		if($.trim($('input[name=phone1]').val()) == ""){ 
+			alert('phone1을 입력하세요');
+			$('input[name=phone1]').focus();
+			return false;
+		}
+		if(isNaN($('input[name=phone1]').val())){ 
+			alert('숫자만 입력하세요');
+			$('input[name=phone1]').select();
+			return false;
+		}
+		
+		if($.trim($('input[name=phone2]').val()) == ""){ 
+			alert('phone2를 입력하세요');
+			$('input[name=phone2]').focus();
+			return false;
+		}
+		if(isNaN($('input[name=phone2]').val())){ 
+			alert('숫자만 입력하세요');
+			$('input[name=phone2]').select();
+			return false;
+		}
+		
+		if($('input[name=addr1]').val()==""){
+			alert('주소를 입력하세요');
+			$('input[name=addr1]').focus();
+			return false;
+		}
+		if($('input[name=addr2]').val()==""){
+			alert('상세 주소를 입력하세요');
+			$('input[name=addr2]').focus();
+			return false;
+		}	
+		
+		// 이메일 검사
+		regex = /^[a-z0-9]*@[a-z0-9]*\.[a-z]{2,3}$/;
+		if($('input[name=email]').val()==""){
+			alert('이메일을 입력하세요');
+			$('input[name=email]').focus();
+			return false;
+		}else if(!regex.test($('input[name=email]').val())){
+			alert("이메일 형식이 올바르지 않습니다. 다시 입력해 주세요");
+			$('input[name=email]').select();
+			return false;
+		}
+		
+		str = '선택한 항목은\n' + 
+			'아이디: ' + $('input[name=id]').val() + '\n' +
+			'비밀번호: ' + $('input[name=pw]').val() + '\n' +
+			'이름: ' + $('input[name=name]').val() + '\n' +
+			'전화번호: ' + $('select option:selected').val() + '-' + $('input[name=phone1]').val() + '-' + $('input[name=phone2]').val() + '\n' +
+			'주소: ' + $('input[name=addr1]').val() + ' ' + $('input[name=addr2]').val() + '\n' +
+			'이메일: ' + $('input[name=email]').val() + '\n';
+		
+		//가수
+		if($('input[name=singer]:checked').length == ""){
+			alert("가수는 한명이상 선택하세요");
+			return false;
+		}
+		str += '가수: ' ;
+		$('input[name=singer]:checked').each(function() {
+			str += $(this).val() + " ";
+		});
+		
+		// 성별
+		if($('input[name=gender]:checked').length == ""){
+			alert("성별을 선택하세요");
+			return false;
+		}
+		str += '\n성별: ' + $('input[name=gender]:checked').val() + '\n';
+		
+		//글쓰기
+		if($('input[name=msg]').val()==""){
+			alert('글을 입력하세요');
+			$('input[name=msg]').focus();
+			return false;
+		}
+		
+		str += '글쓰기: ' + $('textarea[name=msg]').val();
+		
+		alert(str);
+	}
+</script>
+</head>
+<body>
+	<form name="myform" action="abc.jsp">
+	<table border='1'>
+		<tr>
+			<th>아이디</th>
+			<td><input type="text" name="id" size="20" maxlength="10" value="아이디 입력"></td>
+		</tr>
+		<tr>
+			<th>비밀번호</th>
+			<td><input type="password" name="pw" size="20" maxlength="15"></td>
+		</tr>
+		<tr>
+			<th>비밀번호 확인</th>
+			<td><input type="password" name="pwcheck" size="20" maxlength="15"></td>
+		</tr>
+		<tr>
+			<th>이름</th>
+			<td><input type="text" name="name" size="20" maxlength="10"></td>
+		</tr>
+		<tr>
+			<th>전화 번호</th>
+			<td>
+			<select id="phone">
+				<option value="">선택</option>
+				<option value="02">02</option>
+				<option value="031">031</option>
+				<option value="051">051</option>
+				<option value="043">043</option>
+				<option value="064">064</option>
+			</select>
+			- <input type="text" name="phone1" size="5" maxlength="4">
+			- <input type="text" name="phone2" size="5" maxlength="4">
+			</td>
+		</tr>
+		<tr>
+			<th>주소</th>
+			<td><input type="text" name="addr1" size="35" maxlength="30"></td>
+		</tr>
+		<tr>
+			<th>세부 주소</th>
+			<td><input type="text" name="addr2" size="35" maxlength="30"></td>
+		</tr>
+		<tr>
+			<th>email</th>
+			<td><input type="email" name="email" size="35" maxlength="30"></td>
+		</tr>
+		<tr>
+			<th>좋아하는 가수 </th>
+			<td>
+			<input type="checkbox" name="singer" value="소녀시대" checked="checked">소녀시대
+			<input type="checkbox" name="singer" value="방탄">방탄
+			<input type="checkbox" name="singer" value="레드벨벳">레드벨벳
+			<input type="checkbox" name="singer" value="동방신기">동방신기
+			</td>
+		</tr>
+		<tr>
+			<th>성별</th>
+			<td>
+			<input type="radio" name="gender" value="남">남
+			<input type="radio" name="gender" value="여">여
+			</td>
+		</tr>
+		<tr>
+			<th>글쓰기</th>
+			<td class="te">
+			<textarea rows="5" cols="35" name="msg"></textarea> <!-- 만약 기본값 쓰고싶으면 여기에.,,! -->
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2" align="center">
+				<input type="submit" name="btn1" value="전송합시다" onclick="return check()">
+				<input type="reset" name="btn2" value="초기화">			
+			</td>
+		</tr>
+	</table>
+	</form>
+</body>
+</html>

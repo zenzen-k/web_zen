@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	#div1, #div2{
+		padding: 5px;
+		text-align: center;
+		background-color: green;
+		border: 1px solid gray;
+	}
+	#div2{
+		padding: 50px;
+		display: none;
+	}
+	
+</style>
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script type="text/javascript">
+	$(function() {
+		$('#div1').click(function() {
+			//alert(1);
+			
+			//$('#div2').slideToggle('slow', function() {
+			$('#div2').slideDown('slow', function() {
+				$('#div2 img').css('border','3px solid red');
+			});
+		});
+		
+	}); // ready
+</script>
+</head>
+<body>
+	<div id="div1"> Click </div>
+	<div id="div2">
+		<img src="../images/im0.jpg">
+	</div>
+</body>
+</html>

@@ -19,7 +19,9 @@
 		// 난수발생한 이미지가 각 칸에 들어간다.
 		
 		$("#create").click(function() {
-			$('#divTable').empty()
+			// $('#divTable').empty();
+			// 또는 맨밑줄에서 append 가 아닌, html을 작성해도 된다.
+			
 			tableStr = '<table border=1>';
 			
 			// val() : 입력한 값을 가져올 때 사용하는 함수.
@@ -43,7 +45,8 @@
 				}
 				tableStr += '</tr>';
 			}
-			$('#divTable').append(tableStr);
+			tableStr = '</table>';
+			$('#divTable').html(tableStr);
 			
 		}); //click
 	}); //ready

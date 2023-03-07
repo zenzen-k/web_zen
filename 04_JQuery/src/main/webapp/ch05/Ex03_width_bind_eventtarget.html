@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>ch05 - Ex03</title>
+<style type="text/css">
+	img{
+		width: 100px;
+		height: 100px;
+	}
+</style>
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script type="text/javascript">
+	$(function() {
+		$('img').bind('click mouseover mouseout', function() {
+			// $(this) == $(event.target) 두개는 서로 같은 의미
+			//$(event.target).width(); // width 값을 가져오는 
+			//$(event.target).width(200); // width에 200을 넣는다
+			//$(event.target).width($(event.target).width() + 30);
+			
+			tg = $(event.target);
+			tg.width(tg.width() + 30);
+			tg.height(tg.height() + 30);
+			
+			if(tg.width()>400){ // tg == $(event.target) == $(this);
+				//$('img').unbind(); // 모든 이벤트 해제
+				$('img').unbind('click'); // click만 변화 해제
+			}
+		}); //bind
+		
+	}); // ready
+</script>
+</head>
+<body>
+	<img src="../images/b.jpg">
+</body>
+</html>

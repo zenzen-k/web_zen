@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	.small{
+		width: 100px;
+		height: 100px;
+		padding: 10px;
+	}
+	#right_side{
+		width: 350px;
+		height: 350px;
+		position: absolute;
+		top: 17px;
+		left: 150px;
+	}
+	#imgsrc{
+		display: none;
+	}
+</style>
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script type="text/javascript">
+	$(function() {
+		$('.small').bind({
+			mouseover: function() {
+				$(this).fadeTo('slow',0.3);
+				$('#imgsrc').attr('src',$(this).attr('src')).fadeIn(1000);
+			},
+			mouseout:function() {
+				$(this).fadeTo(2000,1);
+				$('#imgsrc').fadeOut('slow');
+			}
+		});
+		
+	}); // ready
+</script>
+</head>
+<body>
+	<div id="left_side">
+		<div><img class="small" src="../images/image1.jpg"></div>
+		<div><img class="small" id="second" src="../images/image2.jpg"></div>
+		<div><img class="small" src="../images/image3.jpg"></div>
+	</div>
+	
+	<div id="right_side">
+		<img id="imgsrc">
+	</div>
+</body>
+</html>

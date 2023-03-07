@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	div{
+		width: 100px;
+		height: 100px;
+		background: green;
+	}
+</style>
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script type="text/javascript">
+	$(function() {
+		
+		$('div').mouseover(function() {
+			$(this).fadeTo('slow',0.3);
+		});
+
+		$('div').mouseout(function() {
+			$(this).fadeTo(3000,1);
+		});
+		
+		
+	}); // ready
+</script>
+</head>
+<body>
+	<div></div>
+</body>
+</html>
