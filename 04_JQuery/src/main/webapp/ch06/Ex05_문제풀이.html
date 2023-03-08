@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	#left_side{
+		float: left;
+		margin-right: 50px;
+	}
+	.small{ /* img.small 도가능 */
+		width: 90px;
+		height: 90px;
+	}
+</style>
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script type="text/javascript">
+	$(function() {
+		
+		$('#right_side img').attr('src', $('#second').attr('src'));
+		
+		$('.small').mouseover(function() {
+			//alert(1);
+			
+			$(this).fadeTo('slow',0.3);
+			
+			
+			$('#right_side img').css('display','none');
+			// #right_side #imgsrc / #imgsrc
+			$('#right_side img').attr('src', $(this).attr('src')).fadeIn(2000);
+			// 안되는 이유는 $('#right_side #imgsrc').css('display','none'); 을 작성해쥬ㅜ면됨
+		});
+		
+		$('img.small').mouseout(function() {
+			//alert(1);
+			
+			$(this).fadeTo('fast',1);
+		});
+		
+	});
+	</script>
+</head>
+<body>
+	<div id="left_side">
+		<div><img class="small" src="../images/image1.jpg"></div>
+		<div><img class="small" id="second" src="../images/image2.jpg"></div>
+		<div><img class="small" src="../images/image3.jpg"></div>
+	</div>
+	
+	<div id="right_side">
+		<img id="imgsrc">
+	</div>
+</body>
+</html>

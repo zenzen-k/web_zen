@@ -40,7 +40,7 @@
 			return false;
 		}
 		
-		if($('input[name=name]').val().length==0){ // 또는 이런식으로 길이를 비교할 수도 있당!
+		if($('input[name=name]').val().length==0){ // 또는 이런식으로 길이를 비교할 수도 있당! () 히먄인댐
 			alert('이름을 입력하세요');
 			$('input[name=name]').focus();
 			return false;
@@ -90,12 +90,18 @@
 		}	
 		
 		// 이메일 검사
-		regex = /^[a-z0-9]*@[a-z0-9]*\.[a-z]{2,3}$/;
+		//regex = /^[a-z0-9]*@[a-z0-9]*\.[a-z]{2,3}$/;
 		if($('input[name=email]').val()==""){
 			alert('이메일을 입력하세요');
 			$('input[name=email]').focus();
 			return false;
-		}else if(!regex.test($('input[name=email]').val())){
+		}/* else if(!regex.test($('input[name=email]').val())){
+			alert("이메일 형식이 올바르지 않습니다. 다시 입력해 주세요");
+			$('input[name=email]').select();
+			return false;
+		} */
+		// @가 포함되게
+		if($('input[name=email]').val().indexOf('@')==-1){
 			alert("이메일 형식이 올바르지 않습니다. 다시 입력해 주세요");
 			$('input[name=email]').select();
 			return false;
@@ -119,21 +125,41 @@
 			str += $(this).val() + " ";
 		});
 		
+		
+		// 다른방법. length / size() 
+		if($('input[name=singer]:checked').size() == 0){
+			alert("가수는 한명이상 선택하세요");
+			return false;
+		}
+		
+		
 		// 성별
 		if($('input[name=gender]:checked').length == 0){
 			alert("성별을 선택하세요");
 			return false;
 		}
+
+		// 또는 
+		/* if($('input[name=gender]')).is(:'checked') { 
+			is(:'checked') : 둘중에 하나라도 체크속성을 갖고 있는지 물어봄. -> 가지고있으면 참!
+			// 따라서 강제로 !를 쓰기 -> if(!$('input[name=gender]')).is(:'checked')
+			
+			alert("성별을 선택하세요");
+			return false;
+		}*/
 		str += '\n성별: ' + $('input[name=gender]:checked').val() + '\n';
 		
+		
+		
 		//글쓰기
+		// textarea가 하나만있으면 textarea만 사용해도된당
 		if($('textarea[name=msg]').val()==""){
 			alert('글을 입력하세요');
 			$('textarea[name=msg]').focus();
 			return false;
 		}
 		
-		str += '글쓰기: ' + $('textarea[name=msg]').val();
+		str += '글쓰기: ' + $('textarea').val();
 		
 		alert(str);
 	}
@@ -142,6 +168,7 @@
 <body>
 	<form name="myform" action="abc.jsp">
 	<table border='1'>
+		<!-- name은 다른값으로 꼭 지정해주어야 한다 -->
 		<tr>
 			<th>아이디</th>
 			<td><input type="text" name="id" size="20" maxlength="10" value="아이디 입력"></td>
