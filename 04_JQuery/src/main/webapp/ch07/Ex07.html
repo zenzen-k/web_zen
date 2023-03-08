@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$.get('item.xml', function(data) {
+			// alert(data);
+			
+			$('#result').append('<tr><td>id</td>'+
+									'<td>name</td>'+
+									'<td>price</td>'+
+									'<td>description</td></tr>');
+			// alert(data); 객체가 들어옴을 알 수 있당
+			$(data).find('item').each(function() {
+				$('#result').append('<tr><td>' +
+									$(this).attr('id') + '</td><td>' + // id가ㅏ 속성이므로 $(this) 
+									$(this).attr('name') +' </td><td>' +
+									$(this).find('price').text() + '</td><td>' + // 자식임
+									$(this).children('description').text() +'</td></tr>');
+			}); //each
+		});
+	});
+	
+</script>
+</head>
+<body>
+	<h3>과일의 특성 조사 자료</h3>
+	<table id="result" border=1></table>
+</body>
+</html>

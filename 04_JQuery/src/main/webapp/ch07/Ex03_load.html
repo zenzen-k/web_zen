@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	div{
+		float: left;
+		width: 150px;
+		height: 300px;
+		margin: 5px;
+	}
+</style>
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script type="text/javascript">
+	$(function() {
+		$('#menu1').click(function() {
+			$('#msg1').load('menu.html');
+		});
+		
+		$('#menu2').click(function() {
+			$('#msg2').load('menu.html li');
+		});
+	});
+</script>
+</head>
+<body>
+	<div>
+		<a href="#" id="menu1">메뉴보기1</a>
+		<span id="msg1"></span>
+	</div>
+
+	<div>
+		<a href="#" id="menu2">메뉴보기2</a>
+		<span id="msg2"></span>
+	</div>
+	
+	<div style="clear:left">
+		<h3>load 예제입니다</h3>
+	</div>
+</body>
+</html>

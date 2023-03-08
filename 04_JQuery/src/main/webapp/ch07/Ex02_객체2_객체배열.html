@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script type="text/javascript">
+	$(function() {
+		// var man = new Object();
+		var man = {
+				name : 'hong',
+				age : 40,
+				birthdate : new Date(2000,2,10),
+				
+				jumsu : {
+					kor : 70,
+					eng : 80,
+					math : 90
+				}
+		} // man
+		
+		var woman = {
+				name : 'lee',
+				age : 30,
+				birthdate : new Date(1996,5,1),
+				
+				jumsu : {
+					kor : 30,
+					eng : 80,
+					math : 60
+				}
+		} // woman
+		
+		// 객체의 배열 만들기 1
+		var p1 = new Array({
+			name : 'hong',
+			age : 40,
+			birthdate : new Date(2000,2,10),
+			
+			jumsu : {
+				kor : 70,
+				eng : 80,
+				math : 90
+			}
+		},
+		{
+			name : 'lee',
+			age : 30,
+			birthdate : new Date(1996,5,1),
+			
+			jumsu : {
+				kor : 30,
+				eng : 80,
+				math : 60
+			}
+		});
+		
+		// 객체의 배열 만들기 2
+		var p2 = new Array(man, woman);
+		
+		console.log(man.name);
+		console.log(man.birthdate);
+		console.log(man.jumsu.eng);
+		
+		console.log(p2[1].jumsu.math);
+	});
+</script>
+</head>
+<body>
+
+</body>
+</html>

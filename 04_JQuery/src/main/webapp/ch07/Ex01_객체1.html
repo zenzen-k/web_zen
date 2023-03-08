@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script type="text/javascript">
+	$(function() {
+		// 자바의 클래스의 객체를 여기서도 할 수 있음 class Person {}   Person p = new Person(); 
+		// car 객체를 만든다.
+		var car = new Object();
+		car.make = "samsung";
+		car.model = "sm5";
+		car.year = 2000;
+		
+		car.buydate = new Date(2020,3,7); // 0은 1월, 3은 4월
+		
+		// 콘솔창에 출력
+		console.log(car.make);
+		console.log(car.model);
+		console.log(car.year);
+		
+		console.log(car.buydate);
+		console.log(car.buydate.getMonth());
+		
+		//car 안의 owner 객체
+		var owner = new Object();
+		owner.name = "아이유";
+		owner.age = 20;
+		owner.addr = "서울";
+		
+		car.owner = owner;
+		console.log(car.owner.name);
+		console.log(car.owner.age);
+		console.log(car.owner.addr);
+	});
+</script>
+</head>
+<body>
+	
+</body>
+</html>

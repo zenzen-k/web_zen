@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script type="text/javascript">
+	$(function() {
+		$.ajax({
+			url : 'item.json',
+			dataType : 'json',
+			success : function(data) {
+				$('#result').append('<tr><td>id</td>'+
+									'<td>name</td>'+
+									'<td>price</td>'+
+									'<td>description</td></tr>');
+				// alert(data); 객체가 들어옴을 알 수 있당
+				$.each(data, function() {
+					$('#result').append('<tr><td>' +
+										this.id + '</td><td>' + // $(this) 로 하면 또 객체로 만듬.. 이미 가져온거 자체가 객체이기 때문에.
+										this.name +' </td><td>' +
+										this.price + '</td><td>' +
+										this.description+'</td></tr>');
+				}); // each
+			},
+			// 실패내용 쓰기 싫으면 아예 안써도 됨
+			error : function() {
+				
+			}
+		});
+	});
+</script>
+</head>
+<body>
+	<h3>과일의 특성 조사 자료</h3>
+	<table id="result" border=1></table>
+</body>
+</html>

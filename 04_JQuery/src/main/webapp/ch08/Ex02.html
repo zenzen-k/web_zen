@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	img{
+		width: 100%;
+		height: auto;
+	}
+</style>
+<!-- <script type="text/javascript" src="../js/jquery.js"></script> -->
+ <!-- 위처럼 파일을 다운받아서 넣어도 되지만, 해당 함수가 있는 사이트 를 작성해줘도 ㄱㅊ -->
+<script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script type="text/javascript" src="../js/jquery.imagezoom.js"></script> 
+<script type="text/javascript">
+	$(function(){ 
+		$('.zoom').zoom();
+	});
+</script>
+</head>
+<body>
+	<div data-zoom="../images/bigimg0.jpg" class="zoom" style="border:1px solid black; max-width: 600px;">
+		<img src="../images/smallimg0.jpg" border="3">
+	</div>
+</body>
+</html>
